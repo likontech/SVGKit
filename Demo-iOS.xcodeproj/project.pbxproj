@@ -24,6 +24,7 @@
 		661ADBFA16CC3399006F4BC3 /* rotated-and-skewed-text.svg in Resources */ = {isa = PBXBuildFile; fileRef = 661ADBF916CC3399006F4BC3 /* rotated-and-skewed-text.svg */; };
 		661EEA411ACC02AF007176B0 /* SB~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 661EEA401ACC02AF007176B0 /* SB~iphone.storyboard */; };
 		661EEA431ACC04F2007176B0 /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = 661EEA421ACC04F2007176B0 /* Licenses.plist */; };
+		661EEA441ACC04F3007176B0 /* SVGStringSamples.plist in Resources */ = {isa = PBXBuildFile; fileRef = 661EEA451ACC04F3007176B0 /* SVGStringSamples.plist */; };
 		661EEA481ACC0667007176B0 /* VCGridOfImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661EEA471ACC0667007176B0 /* VCGridOfImagesViewController.m */; };
 		661EEA4B1ACC140F007176B0 /* SampleFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 661EEA4A1ACC140F007176B0 /* SampleFileInfo.m */; };
 		661EEA541ACC1723007176B0 /* Monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 661EEA521ACC1723007176B0 /* Monkey.png */; };
@@ -273,6 +274,7 @@
 		661ADBF916CC3399006F4BC3 /* rotated-and-skewed-text.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "rotated-and-skewed-text.svg"; sourceTree = "<group>"; };
 		661EEA401ACC02AF007176B0 /* SB~iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "SB~iphone.storyboard"; sourceTree = "<group>"; };
 		661EEA421ACC04F2007176B0 /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
+		661EEA451ACC04F3007176B0 /* SVGStringSamples.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SVGStringSamples.plist; sourceTree = "<group>"; };
 		661EEA461ACC0667007176B0 /* VCGridOfImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCGridOfImagesViewController.h; sourceTree = "<group>"; };
 		661EEA471ACC0667007176B0 /* VCGridOfImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCGridOfImagesViewController.m; sourceTree = "<group>"; };
 		661EEA491ACC140F007176B0 /* SampleFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleFileInfo.h; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				66E8627B1688BA510059C9C4 /* SVG */,
 				3242C367217CF0CD0013765F /* Fonts */,
 				661EEA421ACC04F2007176B0 /* Licenses.plist */,
+				661EEA451ACC04F3007176B0 /* SVGStringSamples.plist */,
 			);
 			path = "Demo-Samples";
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				66E8629C1688BA510059C9C4 /* Note.svg in Resources */,
 				66E8629D1688BA510059C9C4 /* Reinel_compass_rose-simplified-for-testing.svg in Resources */,
 				661EEA431ACC04F2007176B0 /* Licenses.plist in Resources */,
+				661EEA441ACC04F3007176B0 /* SVGStringSamples.plist in Resources */,
 				66E8629E1688BA510059C9C4 /* Reinel_compass_rose.svg in Resources */,
 				BDC7EAB51B2A5960001F3161 /* CSS.svg in Resources */,
 				66E8629F1688BA510059C9C4 /* test-wave-1.svg in Resources */,

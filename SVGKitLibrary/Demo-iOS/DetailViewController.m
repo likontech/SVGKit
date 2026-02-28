@@ -487,10 +487,22 @@ CATextLayer *textLayerForLastTappedLayer;
 #endif
 		}
 	}
+	else if( [svgSource isKindOfClass:[SVGKSourceString class]])
+	{
+		SVGKParser* parser = [SVGKImage imageWithSource:svgSource
+										   onCompletion:^(SVGKImage *loadedImage, SVGKParseResult* parseResult)
+		{
+			[self.tickerLoadingApplesNSTimerSucks invalidate];
+			dispatch_async(dispatch_get_main_queue(), ^{
+				[self internalLoadedResource:svgSource withOptions:loadingOptions parserOutput:parseResult createImageViewFromDocument:loadedImage];
+			});
+		}];
+		self.tickerLoadingApplesNSTimerSucks = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(tickLoadingSVG:) userInfo:parser repeats:TRUE];
+	}
 	else
 	{
 		[[[UIAlertView alloc] initWithTitle:@"SVG load failed" message:[NSString stringWithFormat:@"Unknown kind of source. Should be a recognized SVGKSource subclass. Was actually : %@", [svgSource class]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-		
+
 		[self internalLoadedResource:nil withOptions:loadingOptions parserOutput:nil createImageViewFromDocument:nil];
 	}
 }

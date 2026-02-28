@@ -50,6 +50,10 @@
     self = [super init];
     if (self)
 	{
+		if( im == nil )
+		{
+			SVGKitLogWarn(@"[%@] WARNING: you have initialized an SVGKImageView with a blank image (nil). Make sure you assign an SVGKImage to the .image property!", [self class]);
+		}
         [self populateFromImage:im];
     }
     return self;
@@ -61,11 +65,6 @@
     // setup layer-backed view
     self.wantsLayer = YES;
 #endif
-	if( im == nil )
-	{
-		SVGKitLogWarn(@"[%@] WARNING: you have initialized an SVGKImageView with a blank image (nil). Possibly because you're using Storyboards or NIBs which Apple won't allow us to decorate. Make sure you assign an SVGKImage to the .image property!", [self class]);
-	}
-    
     self.image = im;
     self.frame = CGRectMake( 0,0, im.size.width, im.size.height ); // NB: this uses the default SVG Viewport; an ImageView can theoretically calc a new viewport (but its hard to get right!)
     self.tileRatio = CGSizeZero;

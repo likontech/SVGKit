@@ -51,10 +51,17 @@
 				  VCAllSpecImages* nextVC = (VCAllSpecImages*) segue.destinationViewController;
 				  nextVC.pathInBundleToSVGSpecTestSuiteFolder = @"W3C_SVG_11_TestSuite";
 			  }
+	else if( [segue.identifier isEqualToString:@"ViewSVGString"])
+	{
+		NSString* path = [[NSBundle mainBundle] pathForResource:@"SVGStringSamples" ofType:@"plist"];
+		NSDictionary* allSamples = [NSDictionary dictionaryWithContentsOfFile:path];
+
+		[((VCGridOfImagesViewController*)segue.destinationViewController) displayOneSectionNamed:@"SVG String" fromDictionary:[allSamples objectForKey:@"SVG String"]];
+	}
 	else if( [segue.identifier hasPrefix:@"View"] )
 	{
 	NSString* sectionName = nil;
-	
+
 		if( [segue.identifier isEqualToString:@"ViewSVGSpec"])
 	{
 		sectionName = @"SVG Spec";
@@ -71,11 +78,11 @@
 	{
 		sectionName = @"Special";
 	}
-	
+
 	NSString* path = [[NSBundle mainBundle] pathForResource:@"Licenses" ofType:@"plist"];
-	
+
 	NSDictionary* allLicenses = [NSDictionary dictionaryWithContentsOfFile:path];
-	
+
 	if( sectionName == nil )
 		[((VCGridOfImagesViewController*)segue.destinationViewController)  displayAllSectionsFromDictionary:allLicenses];
 	else

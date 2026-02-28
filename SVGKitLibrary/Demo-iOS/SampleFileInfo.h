@@ -16,5 +16,7 @@
 +(SampleFileInfo*) sampleFileInfoWithFilename:(NSString*) f;
 +(SampleFileInfo*) sampleFileInfoWithURL:(NSURL*) s;
 +(SampleFileInfo*) sampleFileInfoWithFilename:(NSString*) f URL:(NSURL*) s;
++(SampleFileInfo*) sampleFileInfoWithSVGString:(NSString*) svgString name:(NSString*) name;
++(SampleFileInfo*) sampleFileInfoWithDataURI:(NSString*) dataURI name:(NSString*) name;
 
 @end

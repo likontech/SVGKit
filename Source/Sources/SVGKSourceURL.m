@@ -31,14 +31,25 @@
 	{
 		/* Thanks, Apple, for not implementing your own method.
 		 c.f. http://stackoverflow.com/questions/20571069/i-cannot-initialize-a-nsinputstream
-		 
-		 NB: current Apple docs don't seem to mention this - certainly not in the inputStreamWithURL: method? */
-		NSError* errorWithNSData;
-		NSData *tempData = [NSData dataWithContentsOfURL:u options:0 error:&errorWithNSData];
-		
+
+		 NB: current Apple docs don't seem to mention this - certainly not in the inputStreamWithURL: method?
+
+		 Use NSURLSession instead of NSData to avoid synchronous URL loading on the main thread. */
+		__block NSData *tempData = nil;
+		__block NSError *errorWithNSData = nil;
+		dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+		NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithURL:u completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+			tempData = data;
+			errorWithNSData = error;
+			dispatch_semaphore_signal(semaphore);
+		}];
+		[task resume];
+		dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+
 		if( tempData == nil )
 		{
-            SVGKitLogError(@"Error internally in Apple's NSData trying to read from URL '%@'. Error = %@", u, errorWithNSData);
+            SVGKitLogError(@"Error loading from URL '%@'. Error = %@", u, errorWithNSData);
 		}
 		else
 			stream = [[NSInputStream alloc] initWithData:tempData];

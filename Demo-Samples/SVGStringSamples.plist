@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SVG String</key>
+	<dict>
+		<key>Basic Shapes</key>
+		<dict>
+			<key>SVG String</key>
+			<string><![CDATA[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect x="10" y="10" width="80" height="80" fill="#4A90D9" rx="10"/>
+  <circle cx="150" cy="50" r="40" fill="#E74C3C"/>
+  <ellipse cx="60" cy="150" rx="50" ry="30" fill="#2ECC71"/>
+  <polygon points="150,110 190,190 110,190" fill="#F39C12"/>
+</svg>]]></string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+		<key>Linear Gradient</key>
+		<dict>
+			<key>SVG String</key>
+			<string><![CDATA[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="180" height="180" rx="20" fill="url(#grad1)"/>
+  <circle cx="100" cy="100" r="50" fill="rgba(255,255,255,0.3)"/>
+</svg>]]></string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+		<key>Text Rendering</key>
+		<dict>
+			<key>SVG String</key>
+			<string><![CDATA[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+  <rect width="300" height="150" fill="#2C3E50" rx="10"/>
+  <text x="150" y="50" text-anchor="middle" font-family="Helvetica" font-size="24" fill="#ECF0F1">SVGKit</text>
+  <text x="150" y="85" text-anchor="middle" font-family="Helvetica" font-size="16" fill="#BDC3C7">String Source Demo</text>
+  <line x1="50" y1="100" x2="250" y2="100" stroke="#7F8C8D" stroke-width="1"/>
+  <text x="150" y="130" text-anchor="middle" font-family="Helvetica" font-size="12" fill="#95A5A6">Rendered from raw SVG string</text>
+</svg>]]></string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+		<key>Path Drawing</key>
+		<dict>
+			<key>SVG String</key>
+			<string><![CDATA[<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <path d="M100,10 L190,70 L160,170 L40,170 L10,70 Z" fill="none" stroke="#E74C3C" stroke-width="3"/>
+  <path d="M100,40 L155,80 L135,145 L65,145 L45,80 Z" fill="#3498DB" opacity="0.7"/>
+  <circle cx="100" cy="100" r="25" fill="#F1C40F"/>
+</svg>]]></string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+		<key>Data URI (utf8)</key>
+		<dict>
+			<key>Data URI</key>
+			<string>data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20width%3D%22200%22%20height%3D%22200%22%3E%3Cpath%20d%3D%22M100%2C100%20C100%2C70%20130%2C70%20130%2C100%20C130%2C140%2060%2C140%2060%2C100%20C60%2C50%20150%2C50%20150%2C100%20C150%2C160%2040%2C160%2040%2C100%20C40%2C30%20170%2C30%20170%2C100%22%20fill%3D%22none%22%20stroke%3D%22%23E74C3C%22%20stroke-width%3D%223%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%225%22%20fill%3D%22%233498DB%22%2F%3E%3C%2Fsvg%3E</string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+		<key>Data URI (base64)</key>
+		<dict>
+			<key>Data URI</key>
+			<string>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTEwMCwxMDAgQzEwMCw3MCAxMzAsNzAgMTMwLDEwMCBDMTMwLDE0MCA2MCwxNDAgNjAsMTAwIEM2MCw1MCAxNTAsNTAgMTUwLDEwMCBDMTUwLDE2MCA0MCwxNjAgNDAsMTAwIEM0MCwzMCAxNzAsMzAgMTcwLDEwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTc0QzNDIiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUiIGZpbGw9IiMzNDk4REIiLz48L3N2Zz4=</string>
+			<key>License</key>
+			<string>Public Domain</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

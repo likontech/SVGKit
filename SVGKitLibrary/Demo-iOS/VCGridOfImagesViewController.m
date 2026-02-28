@@ -8,13 +8,25 @@
 
 @implementation VCGridOfImagesViewController
 
--(SampleFileInfo*) sampleFileInfoFromDictionary:(NSDictionary*) license
+-(SampleFileInfo*) sampleFileInfoFromDictionary:(NSDictionary*) license withName:(NSString*) name
 {
+	NSString* svgString = [license objectForKey:@"SVG String"];
+	if( svgString != nil )
+	{
+		return [SampleFileInfo sampleFileInfoWithSVGString:svgString name:name];
+	}
+
+	NSString* dataURI = [license objectForKey:@"Data URI"];
+	if( dataURI != nil )
+	{
+		return [SampleFileInfo sampleFileInfoWithDataURI:dataURI name:name];
+	}
+
 	NSString* sourceURL = [license objectForKey:@"Source URL"];
 	NSString* sourceFilename = [license objectForKey:@"Source Local File"];
-	
+
 	SampleFileInfo* info = [SampleFileInfo sampleFileInfoWithFilename:sourceFilename URL:(sourceURL != nil) ? [NSURL URLWithString:sourceURL] : nil];
-	
+
 	return info;
 }
 
@@ -25,7 +37,7 @@
 	for( NSString* key in inputDictionary )
 	{
 		[self.sectionNames addObject:key];
-		
+
 		NSDictionary* licensesInSection = [inputDictionary objectForKey:key];
 		if( licensesInSection != nil )
 		{
@@ -33,13 +45,13 @@
 			for( NSString* subkey in licensesInSection )
 			{
 				NSDictionary* license = [licensesInSection objectForKey:subkey];
-				[temp addObject:[self sampleFileInfoFromDictionary:license]];
+				[temp addObject:[self sampleFileInfoFromDictionary:license withName:subkey]];
 			}
-			
+
 			temp = [NSMutableArray arrayWithArray: [temp sortedArrayWithOptions:0 usingComparator:^NSComparisonResult(id obj1, id obj2) {
 				return [((SampleFileInfo*)obj1).name compare:((SampleFileInfo*)obj2).name];
 			}]];
-			
+
 			[self.itemArraysBySectionName setObject:temp forKey:key];
 		}
 	}
@@ -49,19 +61,19 @@
 {
 	self.itemArraysBySectionName = [NSMutableDictionary dictionary];
 	self.sectionNames = [NSMutableArray arrayWithArray:@[sectionName]];
-	
+
 	NSMutableArray* temp = [NSMutableArray array];
 	for( NSString* subkey in licensesInSection )
 	{
 		NSDictionary* license = [licensesInSection objectForKey:subkey];
-		
-		[temp addObject:[self sampleFileInfoFromDictionary:license]];
+
+		[temp addObject:[self sampleFileInfoFromDictionary:license withName:subkey]];
 	}
-	
+
 	temp = [NSMutableArray arrayWithArray: [temp sortedArrayWithOptions:0 usingComparator:^NSComparisonResult(id obj1, id obj2) {
 		return [((SampleFileInfo*)obj1).name compare:((SampleFileInfo*)obj2).name];
 	}]];
-	
+
 	[self.itemArraysBySectionName setObject:temp forKey:sectionName];
 	self.title = sectionName;
 }

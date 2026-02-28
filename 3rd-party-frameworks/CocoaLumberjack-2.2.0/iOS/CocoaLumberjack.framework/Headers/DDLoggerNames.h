@@ -13,34 +13,18 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import <CocoaLumberjack/DDASLLogger.h>
-
-@protocol DDLogger;
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- *  This class provides the ability to capture the ASL (Apple System Logs)
- */
-API_DEPRECATED("Use DDOSLogger instead", macosx(10.4,10.12), ios(2.0,10.0), watchos(2.0,3.0), tvos(9.0,10.0))
-@interface DDASLLogCapture : NSObject
+typedef NSString *DDLoggerName NS_EXTENSIBLE_STRING_ENUM;
 
-/**
- *  Start capturing logs
- */
-+ (void)start;
+FOUNDATION_EXPORT DDLoggerName const DDLoggerNameOS NS_SWIFT_NAME(DDLoggerName.os);     // DDOSLogger
+FOUNDATION_EXPORT DDLoggerName const DDLoggerNameFile NS_SWIFT_NAME(DDLoggerName.file); // DDFileLogger
 
-/**
- *  Stop capturing logs
- */
-+ (void)stop;
+FOUNDATION_EXPORT DDLoggerName const DDLoggerNameTTY NS_SWIFT_NAME(DDLoggerName.tty);   // DDTTYLogger
 
-/**
- *  The current capture level.
- *  @note Default log level: DDLogLevelVerbose (i.e. capture all ASL messages).
- */
-@property (class) DDLogLevel captureLevel;
-
-@end
+API_DEPRECATED("Use DDOSLogger instead", macosx(10.4, 10.12), ios(2.0, 10.0), watchos(2.0, 3.0), tvos(9.0, 10.0))
+FOUNDATION_EXPORT DDLoggerName const DDLoggerNameASL NS_SWIFT_NAME(DDLoggerName.asl);   // DDASLLogger
 
 NS_ASSUME_NONNULL_END
